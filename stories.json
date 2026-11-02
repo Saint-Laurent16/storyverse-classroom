@@ -1,0 +1,687 @@
+{
+  "stories": [
+    {
+      "id": "anansi",
+      "title": "Anansi’s Web",
+      "tagline": "A clever trickster. A tangled plan. A lesson worth sharing.",
+      "description": "Join Anansi as a clever plan teaches a whole village the power of sharing wisdom.",
+      "readingLevel": "Level 7 · Folktale",
+      "genre": "FOLKTALE",
+      "accent": "#b58aff",
+      "world": "web",
+      "cover": "anansi",
+      "scenes": [
+        {
+          "label": "A VERY CLEVER SPIDER",
+          "title": "A jar full of wisdom",
+          "text": "Long ago, Anansi the spider believed he was the cleverest creature in the world. He decided to gather every piece of wisdom and keep it in a clay jar. If he owned all the answers, he thought, no one could ever be wiser than he was.\n\nAnansi tied the jar to his chest and searched the village for the perfect hiding place. But the jar was heavy, and its lid rattled with every step.",
+          "narration": "Long ago, Anansi the spider believed he was the cleverest creature in the world. He decided to gather every piece of wisdom and keep it in a clay jar. If he owned all the answers, he thought, no one could ever be wiser than he was. Anansi tied the jar to his chest and searched the village for the perfect hiding place. But the jar was heavy, and its lid rattled with every step.",
+          "vocabulary": [
+            {
+              "word": "wisdom",
+              "meaning": "the ability to make good decisions using knowledge and experience"
+            },
+            {
+              "word": "rattled",
+              "meaning": "made a series of short, sharp sounds"
+            }
+          ],
+          "objectHint": "Tap the glowing jar to hear Anansi’s plan.",
+          "objectMessage": "The jar holds every idea Anansi has collected. But can one person truly own wisdom?"
+        },
+        {
+          "label": "A PLAN GOES WRONG",
+          "title": "The tree-top problem",
+          "text": "Anansi chose a tall palm tree and began to climb. He tied the jar in front of him, but it kept bumping against the trunk. His son, Ntikuma, watched from below.\n\n“Father,” Ntikuma called gently, “why not tie the jar to your back? Then your hands can hold the tree.”\n\nAnansi froze. His young son had noticed a solution that he had missed. For the first time, Anansi wondered whether keeping all the wisdom had made him less wise.",
+          "narration": "Anansi chose a tall palm tree and began to climb. He tied the jar in front of him, but it kept bumping against the trunk. His son, Ntikuma, watched from below. Father, Ntikuma called gently, why not tie the jar to your back? Then your hands can hold the tree. Anansi froze. His young son had noticed a solution that he had missed. For the first time, Anansi wondered whether keeping all the wisdom had made him less wise.",
+          "vocabulary": [
+            {
+              "word": "solution",
+              "meaning": "an answer to a problem"
+            },
+            {
+              "word": "noticed",
+              "meaning": "became aware of something by seeing or observing it"
+            }
+          ],
+          "objectHint": "Tap the web to reveal the turning point.",
+          "objectMessage": "Ntikuma’s simple suggestion shows that a fresh point of view can solve a difficult problem."
+        },
+        {
+          "label": "WISDOM IS SHARED",
+          "title": "A gift for everyone",
+          "text": "Angry and embarrassed, Anansi dropped the jar. It broke against the ground, and the wisdom scattered like seeds in the wind. The villagers gathered and listened to one another, each sharing what they knew.\n\nAnansi finally understood: wisdom grows when people exchange ideas. No one person can hold every answer. From that day on, the village became a place where knowledge was shared, not hidden.",
+          "narration": "Angry and embarrassed, Anansi dropped the jar. It broke against the ground, and the wisdom scattered like seeds in the wind. The villagers gathered and listened to one another, each sharing what they knew. Anansi finally understood: wisdom grows when people exchange ideas. No one person can hold every answer. From that day on, the village became a place where knowledge was shared, not hidden.",
+          "vocabulary": [
+            {
+              "word": "scattered",
+              "meaning": "spread in different directions"
+            },
+            {
+              "word": "exchange",
+              "meaning": "to give something and receive something in return"
+            }
+          ],
+          "objectHint": "Tap a shining seed of wisdom.",
+          "objectMessage": "The story’s lesson: knowledge becomes more valuable when it is shared."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Why did Anansi collect every piece of wisdom?",
+          "choices": [
+            "He wanted to sell it at the market.",
+            "He wanted to be the only creature with all the answers.",
+            "He wanted to give it to the king.",
+            "He was afraid of the village."
+          ]
+        },
+        {
+          "question": "What problem did Anansi face while climbing the palm tree?",
+          "choices": [
+            "The jar kept bumping against the tree.",
+            "The tree began to fall.",
+            "He could not find the village.",
+            "The jar was empty."
+          ]
+        },
+        {
+          "question": "What does Ntikuma’s suggestion reveal?",
+          "choices": [
+            "Children should never speak.",
+            "Anansi already knew the answer.",
+            "A different point of view can help solve a problem.",
+            "The jar was too small."
+          ]
+        },
+        {
+          "question": "In the story, what does “exchange” most nearly mean?",
+          "choices": [
+            "Hide something forever",
+            "Give and receive",
+            "Break into pieces",
+            "Climb carefully"
+          ]
+        },
+        {
+          "question": "Which statement best expresses the main idea?",
+          "choices": [
+            "The tallest tree is the safest place.",
+            "A clever person never asks for help.",
+            "Knowledge is most valuable when people share it.",
+            "A jar can hold every answer."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forest",
+      "title": "The Lost Forest",
+      "tagline": "One missing trail. Three brave friends. A forest in need.",
+      "description": "Follow three friends through a mysterious forest as they learn to listen to nature and one another.",
+      "readingLevel": "Level 8 · Adventure",
+      "genre": "ADVENTURE",
+      "accent": "#6ee7c8",
+      "world": "forest",
+      "cover": "forest",
+      "scenes": [
+        {
+          "label": "THE WRONG TURN",
+          "title": "A trail that disappeared",
+          "text": "Mika, Jo, and Ren were hiking along a familiar forest path when a thick silver mist rolled between the trees. The trail markers vanished behind the fog. When the mist cleared, the friends could no longer see the wooden bridge they had crossed.\n\n“We should keep walking,” Jo said quickly. Mika shook her head. “Let’s stop, look around, and listen first.” A quiet rustle came from the ferns beside them.",
+          "narration": "Mika, Jo, and Ren were hiking along a familiar forest path when a thick silver mist rolled between the trees. The trail markers vanished behind the fog. When the mist cleared, the friends could no longer see the wooden bridge they had crossed. We should keep walking, Jo said quickly. Mika shook her head. Let's stop, look around, and listen first. A quiet rustle came from the ferns beside them.",
+          "vocabulary": [
+            {
+              "word": "mist",
+              "meaning": "a cloud of tiny water drops near the ground"
+            },
+            {
+              "word": "rustle",
+              "meaning": "a soft sound made by leaves or paper moving"
+            }
+          ],
+          "objectHint": "Tap the fern to discover who is nearby.",
+          "objectMessage": "A small forest bird is calling from the fern. Listening carefully may reveal a clue."
+        },
+        {
+          "label": "FOLLOW THE CLUES",
+          "title": "The forest speaks",
+          "text": "Ren noticed tiny footprints in the damp soil. Jo spotted a broken branch pointing toward a narrow stream. The friends compared what they had found instead of arguing about whose idea was best.\n\nNear the water, they heard a bird repeating the same three notes. Mika remembered seeing a painted symbol near the old ranger station. The notes matched the rhythm of the symbol’s markings. Together, the friends followed the stream toward a grove of bright blue flowers.",
+          "narration": "Ren noticed tiny footprints in the damp soil. Jo spotted a broken branch pointing toward a narrow stream. The friends compared what they had found instead of arguing about whose idea was best. Near the water, they heard a bird repeating the same three notes. Mika remembered seeing a painted symbol near the old ranger station. The notes matched the rhythm of the symbol's markings. Together, the friends followed the stream toward a grove of bright blue flowers.",
+          "vocabulary": [
+            {
+              "word": "damp",
+              "meaning": "slightly wet"
+            },
+            {
+              "word": "grove",
+              "meaning": "a small group of trees"
+            }
+          ],
+          "objectHint": "Tap the blue flower to reveal the clue.",
+          "objectMessage": "The flowers grow beside the stream. The bird’s call and the painted symbol point in the same direction."
+        },
+        {
+          "label": "A PATH HOME",
+          "title": "The trail we made together",
+          "text": "The blue flowers marked the edge of the ranger station clearing. From there, the friends could see the wooden bridge in the distance. They had not been truly lost; the mist had simply hidden the familiar landmarks.\n\nBefore leaving, Mika tied a bright ribbon to a low branch to help other hikers notice the turn. Jo thanked Mika for slowing them down, and Ren added a small trail note to the ranger’s map. They walked home knowing that teamwork means combining different observations into one clear plan.",
+          "narration": "The blue flowers marked the edge of the ranger station clearing. From there, the friends could see the wooden bridge in the distance. They had not been truly lost; the mist had simply hidden the familiar landmarks. Before leaving, Mika tied a bright ribbon to a low branch to help other hikers notice the turn. Jo thanked Mika for slowing them down, and Ren added a small trail note to the ranger's map. They walked home knowing that teamwork means combining different observations into one clear plan.",
+          "vocabulary": [
+            {
+              "word": "landmark",
+              "meaning": "an object or place that helps someone recognize where they are"
+            },
+            {
+              "word": "observations",
+              "meaning": "details noticed by watching or examining something"
+            }
+          ],
+          "objectHint": "Tap the ribbon on the branch.",
+          "objectMessage": "The ribbon is a small act of kindness for the next hiker. The friends turned their experience into a helpful clue."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What caused the friends to lose sight of the trail?",
+          "choices": [
+            "A heavy rainstorm",
+            "A thick silver mist",
+            "A fallen tree",
+            "A wild animal"
+          ]
+        },
+        {
+          "question": "What did Mika suggest when the trail disappeared?",
+          "choices": [
+            "Run in different directions",
+            "Keep walking without stopping",
+            "Stop, look around, and listen",
+            "Call the birds"
+          ]
+        },
+        {
+          "question": "Which clues helped the friends find their way?",
+          "choices": [
+            "Footprints, a branch, and a bird call",
+            "A phone signal and a road sign",
+            "A map, a compass, and a tent",
+            "Only the blue flowers"
+          ]
+        },
+        {
+          "question": "What does “landmark” mean in this story?",
+          "choices": [
+            "A type of bird",
+            "A place or object that helps identify a location",
+            "A narrow stream",
+            "A kind of flower"
+          ]
+        },
+        {
+          "question": "What is the main lesson of the story?",
+          "choices": [
+            "Never explore a forest.",
+            "Only one person should make decisions.",
+            "Teamwork combines different observations into a useful plan.",
+            "Birds always know the way home."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ocean",
+      "title": "The Ocean’s Secret",
+      "tagline": "A hidden message beneath the waves.",
+      "description": "Dive with Lira and a curious sea turtle to uncover a secret that could protect their reef.",
+      "readingLevel": "Level 9 · Fantasy",
+      "genre": "FANTASY",
+      "accent": "#69c9ff",
+      "world": "ocean",
+      "scenes": [
+        {
+          "label": "A MESSAGE IN THE REEF",
+          "title": "The glowing shell",
+          "text": "Lira was collecting smooth stones near the coral reef when a tiny sea turtle nudged a glowing shell toward her. Inside the shell, a blue light pulsed in a steady rhythm. Lira placed it close to her ear and heard a faint clicking sound.\n\nHer grandmother had once told her that the reef carried messages through sound and movement. Lira wondered whether the shell was asking for help. She followed the turtle toward a patch of coral that looked unusually pale.",
+          "narration": "Lira was collecting smooth stones near the coral reef when a tiny sea turtle nudged a glowing shell toward her. Inside the shell, a blue light pulsed in a steady rhythm. Lira placed it close to her ear and heard a faint clicking sound. Her grandmother had once told her that the reef carried messages through sound and movement. Lira wondered whether the shell was asking for help. She followed the turtle toward a patch of coral that looked unusually pale.",
+          "vocabulary": [
+            {
+              "word": "pulsed",
+              "meaning": "moved or shone in a repeated rhythm"
+            },
+            {
+              "word": "reef",
+              "meaning": "a ridge of rock or coral near the sea surface"
+            }
+          ],
+          "objectHint": "Tap the glowing shell to listen for its message.",
+          "objectMessage": "The shell flashes in a pattern. Something nearby may be disturbing the coral reef."
+        },
+        {
+          "label": "WHAT LIES BENEATH",
+          "title": "The silent current",
+          "text": "The turtle led Lira to a narrow channel where the water moved more slowly than usual. A torn fishing net was caught between two coral branches. Small fish were struggling to swim through its tangled threads.\n\nLira wanted to pull the net free immediately, but the turtle circled the coral and pointed toward a sharp hook. She understood that rushing could damage the reef even more. She searched for a safe way to loosen the net without touching the living coral.",
+          "narration": "The turtle led Lira to a narrow channel where the water moved more slowly than usual. A torn fishing net was caught between two coral branches. Small fish were struggling to swim through its tangled threads. Lira wanted to pull the net free immediately, but the turtle circled the coral and pointed toward a sharp hook. She understood that rushing could damage the reef even more. She searched for a safe way to loosen the net without touching the living coral.",
+          "vocabulary": [
+            {
+              "word": "channel",
+              "meaning": "a narrow passage of water"
+            },
+            {
+              "word": "loosen",
+              "meaning": "to make less tight or firmly fixed"
+            }
+          ],
+          "objectHint": "Tap the trapped net to see the problem.",
+          "objectMessage": "The net is tangled around the coral. Careful action is needed to avoid harming the reef."
+        },
+        {
+          "label": "A PROMISE TO THE SEA",
+          "title": "The reef can recover",
+          "text": "Lira called the reef ranger, who brought safe cutting tools and carefully removed the net. The small fish darted back into the clear water. The pale coral still needed time and protection, so Lira helped place a warning marker near the channel.\n\nAs the glowing shell dimmed, Lira realized that the message had not been a mystery for her alone to solve. It had been a reminder that every creature depends on a healthy ocean. She promised to share what she had seen and help keep the reef clean.",
+          "narration": "Lira called the reef ranger, who brought safe cutting tools and carefully removed the net. The small fish darted back into the clear water. The pale coral still needed time and protection, so Lira helped place a warning marker near the channel. As the glowing shell dimmed, Lira realized that the message had not been a mystery for her alone to solve. It had been a reminder that every creature depends on a healthy ocean. She promised to share what she had seen and help keep the reef clean.",
+          "vocabulary": [
+            {
+              "word": "depends",
+              "meaning": "needs or relies on something"
+            },
+            {
+              "word": "marker",
+              "meaning": "an object or sign that shows a location or warning"
+            }
+          ],
+          "objectHint": "Tap the healthy coral to hear the lesson.",
+          "objectMessage": "The reef needs care from the whole community. Protecting nature begins with noticing problems and asking for help."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What did the sea turtle bring to Lira?",
+          "choices": [
+            "A glowing shell",
+            "A fishing net",
+            "A map",
+            "A piece of coral"
+          ]
+        },
+        {
+          "question": "What problem did Lira discover in the reef?",
+          "choices": [
+            "A large ship",
+            "A torn fishing net tangled in coral",
+            "A missing sea turtle",
+            "A broken lighthouse"
+          ]
+        },
+        {
+          "question": "Why did Lira avoid pulling the net immediately?",
+          "choices": [
+            "She could not swim.",
+            "The net was too light.",
+            "Rushing could damage the coral and the hook was sharp.",
+            "The turtle told her to leave."
+          ]
+        },
+        {
+          "question": "What does “depends on” mean in the final scene?",
+          "choices": [
+            "Moves away from",
+            "Needs or relies on",
+            "Looks different from",
+            "Hides behind"
+          ]
+        },
+        {
+          "question": "What is the central message of the story?",
+          "choices": [
+            "Secrets should never be shared.",
+            "Only sea turtles can protect reefs.",
+            "A healthy ocean requires care and shared responsibility.",
+            "Coral grows quickly after damage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lantern",
+      "title": "The Lantern Keeper",
+      "tagline": "A fading light. A stormy night. A brave choice.",
+      "description": "Mira follows a trail of tiny lights to help a coastal village find its way home.",
+      "readingLevel": "Level 7 · Mystery",
+      "genre": "MYSTERY",
+      "accent": "#e9b86d",
+      "world": "forest",
+      "cover": "lantern",
+      "scenes": [
+        {
+          "label": "THE LIGHT GOES OUT",
+          "title": "A shore without a beacon",
+          "text": "Every evening, Mira helped her grandfather light the old beacon above the fishing village. Its warm glow guided boats safely through the dark water. One night, a sudden gust extinguished the flame. Far below, clouds covered the moon and the returning boats could not see the shore.\n\nGrandfather searched for the spare lamp, but the supply room was locked. Mira noticed a line of tiny lights moving along the cliff path. They looked like fireflies, but they were travelling in a careful pattern.",
+          "narration": "Every evening, Mira helped her grandfather light the old beacon above the fishing village. Its warm glow guided boats safely through the dark water. One night, a sudden gust extinguished the flame. Far below, clouds covered the moon and the returning boats could not see the shore. Grandfather searched for the spare lamp, but the supply room was locked. Mira noticed a line of tiny lights moving along the cliff path. They looked like fireflies, but they were travelling in a careful pattern.",
+          "vocabulary": [
+            {
+              "word": "beacon",
+              "meaning": "a light or signal that guides people"
+            },
+            {
+              "word": "extinguished",
+              "meaning": "caused a flame or light to go out"
+            }
+          ],
+          "objectHint": "Tap the lantern to reveal the first clue.",
+          "objectMessage": "The small lights are fireflies gathering near the old signal path."
+        },
+        {
+          "label": "FOLLOW THE SIGNAL",
+          "title": "Fireflies in the fog",
+          "text": "Mira followed the fireflies to a sheltered cave. Inside, she found an old hand lantern and a note explaining how the village once used reflected light to signal boats. The lantern had a cracked glass panel, but its metal frame was strong.\n\nInstead of carrying it alone, Mira asked two neighbours to help. One held the lantern steady while the other polished a bright piece of metal. Together, they aimed the reflected light toward the sea.",
+          "narration": "Mira followed the fireflies to a sheltered cave. Inside, she found an old hand lantern and a note explaining how the village once used reflected light to signal boats. The lantern had a cracked glass panel, but its metal frame was strong. Instead of carrying it alone, Mira asked two neighbours to help. One held the lantern steady while the other polished a bright piece of metal. Together, they aimed the reflected light toward the sea.",
+          "vocabulary": [
+            {
+              "word": "reflected",
+              "meaning": "bounced back from a surface"
+            },
+            {
+              "word": "sheltered",
+              "meaning": "protected from wind, rain, or danger"
+            }
+          ],
+          "objectHint": "Tap the shining reflector.",
+          "objectMessage": "A reflector can redirect light, making a small flame easier to see from far away."
+        },
+        {
+          "label": "A SAFE RETURN",
+          "title": "The village shines together",
+          "text": "The moving beam reached the boats. The fishermen answered with small flashes from their own lamps and slowly followed the signal toward the harbour. By dawn, every boat had returned safely.\n\nMira's grandfather thanked the neighbours for helping. He explained that the beacon was important, but the people who cared for one another were the village's strongest guide. Mira wrote the signal instructions beside the lantern so everyone could use it when needed.",
+          "narration": "The moving beam reached the boats. The fishermen answered with small flashes from their own lamps and slowly followed the signal toward the harbour. By dawn, every boat had returned safely. Mira's grandfather thanked the neighbours for helping. He explained that the beacon was important, but the people who cared for one another were the village's strongest guide. Mira wrote the signal instructions beside the lantern so everyone could use it when needed.",
+          "vocabulary": [
+            {
+              "word": "harbour",
+              "meaning": "a sheltered place where boats can stay safely"
+            },
+            {
+              "word": "instructions",
+              "meaning": "directions that explain how to do something"
+            }
+          ],
+          "objectHint": "Tap the beacon to hear the village's lesson.",
+          "objectMessage": "Preparedness and cooperation can guide a whole community through uncertainty."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What caused the village beacon to go out?",
+          "choices": [
+            "A sudden gust of wind",
+            "A broken boat",
+            "A rising tide",
+            "A missing map"
+          ]
+        },
+        {
+          "question": "What did Mira notice along the cliff path?",
+          "choices": [
+            "A line of tiny lights",
+            "A group of boats",
+            "A fallen tree",
+            "A trail of shells"
+          ]
+        },
+        {
+          "question": "Why did Mira ask neighbours to help?",
+          "choices": [
+            "The lantern was too heavy to see",
+            "Working together helped them aim the reflected light",
+            "She wanted them to find the cave",
+            "The fireflies had disappeared"
+          ]
+        },
+        {
+          "question": "What does “reflected” mean in the story?",
+          "choices": [
+            "Hidden from view",
+            "Bounced back from a surface",
+            "Changed into sound",
+            "Covered by fog"
+          ]
+        },
+        {
+          "question": "What is the central lesson?",
+          "choices": [
+            "Only old tools are useful",
+            "Storms can always be avoided",
+            "Cooperation helps communities face challenges",
+            "Fireflies can guide every boat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clockwork",
+      "title": "The Clockwork Garden",
+      "tagline": "A quiet garden. A curious inventor. A living puzzle.",
+      "description": "Noah discovers that a forgotten garden needs patience, observation, and a little teamwork.",
+      "readingLevel": "Level 8 · Science fiction",
+      "genre": "SCIENCE FICTION",
+      "accent": "#8bb8a4",
+      "world": "clockwork",
+      "cover": "clockwork",
+      "scenes": [
+        {
+          "label": "A STRANGE DISCOVERY",
+          "title": "The garden that stopped",
+          "text": "Behind the town library stood a glasshouse filled with brass flowers and tiny metal birds. The garden had once moved with the sunlight, but its gears had stopped turning years ago. Noah, who loved taking apart old machines, found a note beneath a dusty bench: “The garden wakes when its parts work together.”\n\nHe tried turning the largest wheel. Nothing happened. A small mechanical bird clicked once, then became still.",
+          "narration": "Behind the town library stood a glasshouse filled with brass flowers and tiny metal birds. The garden had once moved with the sunlight, but its gears had stopped turning years ago. Noah, who loved taking apart old machines, found a note beneath a dusty bench: The garden wakes when its parts work together. He tried turning the largest wheel. Nothing happened. A small mechanical bird clicked once, then became still.",
+          "vocabulary": [
+            {
+              "word": "brass",
+              "meaning": "a yellow metal made by combining copper and zinc"
+            },
+            {
+              "word": "mechanical",
+              "meaning": "made or operated by machines"
+            }
+          ],
+          "objectHint": "Tap the mechanical bird.",
+          "objectMessage": "The bird's clicking sound suggests that one gear is trying to move."
+        },
+        {
+          "label": "THE MISSING CONNECTION",
+          "title": "Small gears, big changes",
+          "text": "Noah examined the garden carefully. He found a loose gear near the fountain and a narrow belt hanging from the roof. His friend Inez noticed that the sunlight fell on a small glass sensor at noon. They realized the garden needed both a repaired gear and light reaching the sensor.\n\nThey fitted the gear into place and cleared the leaves from the glass. When sunlight touched the sensor, the smallest flowers began to turn.",
+          "narration": "Noah examined the garden carefully. He found a loose gear near the fountain and a narrow belt hanging from the roof. His friend Inez noticed that the sunlight fell on a small glass sensor at noon. They realized the garden needed both a repaired gear and light reaching the sensor. They fitted the gear into place and cleared the leaves from the glass. When sunlight touched the sensor, the smallest flowers began to turn.",
+          "vocabulary": [
+            {
+              "word": "sensor",
+              "meaning": "a device that detects a change such as light, heat, or movement"
+            },
+            {
+              "word": "fitted",
+              "meaning": "placed or joined something in the correct position"
+            }
+          ],
+          "objectHint": "Tap the glass sensor.",
+          "objectMessage": "The sensor detects sunlight and starts the garden's moving parts."
+        },
+        {
+          "label": "A GARDEN REAWAKENS",
+          "title": "A system of many parts",
+          "text": "One by one, the brass flowers opened. The tiny birds lifted their wings, and the fountain began to turn. Noah and Inez watched the gears move in a careful rhythm. Neither the gear nor the sensor could have restarted the garden alone.\n\nThey wrote a simple guide for the library and invited younger children to help care for the glasshouse. Noah learned that solving a problem often means noticing how separate parts depend on one another.",
+          "narration": "One by one, the brass flowers opened. The tiny birds lifted their wings, and the fountain began to turn. Noah and Inez watched the gears move in a careful rhythm. Neither the gear nor the sensor could have restarted the garden alone. They wrote a simple guide for the library and invited younger children to help care for the glasshouse. Noah learned that solving a problem often means noticing how separate parts depend on one another.",
+          "vocabulary": [
+            {
+              "word": "rhythm",
+              "meaning": "a repeated pattern of movement or sound"
+            },
+            {
+              "word": "depend",
+              "meaning": "to need or rely on something"
+            }
+          ],
+          "objectHint": "Tap a turning flower.",
+          "objectMessage": "The garden works because each part contributes to the whole system."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Where did Noah find the forgotten garden?",
+          "choices": [
+            "Behind the town library",
+            "Beside the harbour",
+            "On a mountain path",
+            "Inside his classroom"
+          ]
+        },
+        {
+          "question": "What did Inez notice?",
+          "choices": [
+            "A bird's nest",
+            "Sunlight reaching a glass sensor",
+            "A broken fountain pipe",
+            "A missing flower"
+          ]
+        },
+        {
+          "question": "What two things helped restart the garden?",
+          "choices": [
+            "Rain and wind",
+            "A repaired gear and light on the sensor",
+            "A new roof and fresh soil",
+            "A key and a map"
+          ]
+        },
+        {
+          "question": "What does “sensor” mean?",
+          "choices": [
+            "A device that detects a change",
+            "A tool for digging",
+            "A type of flower",
+            "A machine that stores water"
+          ]
+        },
+        {
+          "question": "What is the main idea?",
+          "choices": [
+            "Machines never need care",
+            "Only large parts matter",
+            "Different parts can work together as one system",
+            "Gardens should be kept indoors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mountain",
+      "title": "The Mountain’s Echo",
+      "tagline": "A distant call. A difficult climb. A voice worth hearing.",
+      "description": "A young climber learns to listen closely and protect a mountain community's shared water source.",
+      "readingLevel": "Level 9 · Adventure",
+      "genre": "ADVENTURE",
+      "accent": "#91a9d6",
+      "world": "mountain",
+      "cover": "mountain",
+      "scenes": [
+        {
+          "label": "THE DRY SPRING",
+          "title": "A message from above",
+          "text": "After weeks without rain, the spring that supplied a mountain village began to slow. Lina and her cousin Tomas climbed the old path to inspect the stone channel that carried water downhill. From the ridge, they heard a strange echo: three short calls followed by one long call.\n\nTomas thought it was only the wind. Lina remembered that the mountain guides used sound signals when fog covered the trails. She decided to listen again before they moved farther.",
+          "narration": "After weeks without rain, the spring that supplied a mountain village began to slow. Lina and her cousin Tomas climbed the old path to inspect the stone channel that carried water downhill. From the ridge, they heard a strange echo: three short calls followed by one long call. Tomas thought it was only the wind. Lina remembered that the mountain guides used sound signals when fog covered the trails. She decided to listen again before they moved farther.",
+          "vocabulary": [
+            {
+              "word": "ridge",
+              "meaning": "a long, narrow high area of land"
+            },
+            {
+              "word": "inspect",
+              "meaning": "to examine something carefully"
+            }
+          ],
+          "objectHint": "Tap the mountain marker.",
+          "objectMessage": "The repeated call may be a signal rather than a random echo."
+        },
+        {
+          "label": "READING THE LAND",
+          "title": "The hidden channel",
+          "text": "The calls came again from beyond a wall of pine trees. Lina followed the sound and found a fallen branch covering part of the stone channel. Water was escaping into the soil before it could reach the village. Tomas noticed fresh marks on the rocks, showing where the channel had shifted.\n\nThey did not try to lift the heavy branch alone. Instead, they marked the location and returned to ask the village repair team for help.",
+          "narration": "The calls came again from beyond a wall of pine trees. Lina followed the sound and found a fallen branch covering part of the stone channel. Water was escaping into the soil before it could reach the village. Tomas noticed fresh marks on the rocks, showing where the channel had shifted. They did not try to lift the heavy branch alone. Instead, they marked the location and returned to ask the village repair team for help.",
+          "vocabulary": [
+            {
+              "word": "channel",
+              "meaning": "a passage that carries water"
+            },
+            {
+              "word": "shifted",
+              "meaning": "moved from its usual position"
+            }
+          ],
+          "objectHint": "Tap the stone channel.",
+          "objectMessage": "The water is leaking where the channel has shifted and become blocked."
+        },
+        {
+          "label": "THE ECHO ANSWERED",
+          "title": "Water for everyone",
+          "text": "The repair team cleared the branch and reset the stones. Water flowed through the channel again, slowly filling the village reservoir. The three-short, one-long call was a signal used by a guide who had seen the blockage from a lookout point.\n\nLina and Tomas helped paint a clear marker beside the channel so future hikers could report damage. They understood that listening, observing, and asking for help can protect resources that everyone depends on.",
+          "narration": "The repair team cleared the branch and reset the stones. Water flowed through the channel again, slowly filling the village reservoir. The three-short, one-long call was a signal used by a guide who had seen the blockage from a lookout point. Lina and Tomas helped paint a clear marker beside the channel so future hikers could report damage. They understood that listening, observing, and asking for help can protect resources that everyone depends on.",
+          "vocabulary": [
+            {
+              "word": "reservoir",
+              "meaning": "a place where water is stored"
+            },
+            {
+              "word": "resources",
+              "meaning": "useful supplies or materials that people need"
+            }
+          ],
+          "objectHint": "Tap the water marker.",
+          "objectMessage": "The mountain's water is a shared resource that needs care."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Why did Lina and Tomas climb the mountain path?",
+          "choices": [
+            "To inspect the village water channel",
+            "To find a lost pet",
+            "To collect flowers",
+            "To visit a lighthouse"
+          ]
+        },
+        {
+          "question": "What did Lina hear from the ridge?",
+          "choices": [
+            "A bell ringing",
+            "Three short calls and one long call",
+            "A river flowing",
+            "A bird singing one note"
+          ]
+        },
+        {
+          "question": "What caused water to escape?",
+          "choices": [
+            "A cracked bucket",
+            "A fallen branch and shifted channel stones",
+            "A dry reservoir roof",
+            "A broken bridge"
+          ]
+        },
+        {
+          "question": "Why did they ask the repair team for help?",
+          "choices": [
+            "The branch and channel needed safe repair",
+            "They wanted to leave the village",
+            "They could not hear the signal",
+            "The spring had frozen"
+          ]
+        },
+        {
+          "question": "What is the central message?",
+          "choices": [
+            "Echoes are always misleading",
+            "Shared resources need observation and care",
+            "Only guides can solve problems",
+            "Mountains should not be climbed"
+          ]
+        }
+      ]
+    }
+  ]
+}
