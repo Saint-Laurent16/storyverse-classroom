@@ -1,93 +1,44 @@
-# STORYVERSE 2.0 — Teacher & Student Portals
+# STORYVERSE — Teacher & Student Portals
 
-A mobile-friendly Grade 7–9 reading platform with interactive storybooks, separate teacher/student portals, private classrooms, assignments, schedules, student checklists, announcements, and reading-comprehension tracking.
+A mobile-friendly Grade 7–9 reading platform with separate teacher and student portals, private classrooms, assignments, schedules, checklists, announcements, student profiles, and a three-book interactive story library.
 
-## Start here
+## Pages
 
-- `index.html` — main landing page with separate **For Teachers** and **For Students** entry cards.
-- `teacher.html` — teacher login/request-access page and teacher dashboard.
-- `student.html` — student login/registration page and student dashboard.
-- `stories.html` — the original 3D/AR storybook library.
+- `index.html` — STORYVERSE landing page and separate teacher/student entry points.
+- `teacher.html` — teacher log in / create account and teacher dashboard. New teacher accounts require a private invitation code.
+- `student.html` — student log in / create account. Students may self-register and join a classroom with a class code.
+- `stories.html` — interactive 3D/AR story library.
 
-## Portal features
+## Core story library
 
-### Teachers
+1. Anansi’s Web — Grade 7
+2. The Lost Forest — Grade 8
+3. The Ocean’s Secret — Grade 9
 
-- Request teacher access using email/password (administrator approval required).
-- Create multiple classrooms with private join codes.
-- Share a direct student invite link containing the classroom code.
-- Assign Anansi's Web, The Lost Forest, and The Ocean's Secret.
-- Add assignment instructions and due dates.
-- View class rosters, scene progress, quiz attempts, and quiz averages.
-- Record approved research pre-test and post-test percentages.
-- Add class schedule events and announcements.
+Story text and quiz choices are in `data/stories.json`. Correct quiz answers are kept in the private Supabase schema and are not included in the public JSON.
 
-### Students
+## Upload
 
-- Register independently using email/password, or use an invite link from a teacher.
-- Join a classroom with a private code after registration or login.
-- View assigned storybooks, instructions, deadlines, tasks, and class schedules.
-- Track personal reading progress and quiz results.
-- Keep a private checklist for school tasks and personal chores. These checklist items are visible only to the student account.
+Upload the contents of this ZIP (not the ZIP itself) into the root of a GitHub repository. Keep `data/stories.json` inside the `data` folder. Enable GitHub Pages from `main` / `/(root)`.
 
-## Project files
+## Supabase setup
 
-```text
-storyverse-classroom/
-├── index.html
-├── portal.css
-├── portal.js
-├── teacher.html
-├── student.html
-├── stories.html
-├── storybook.css
-├── app.js
-├── supabase-client.js
-├── supabase-schema.sql
-├── supabase-portal-upgrade.sql
-├── CLASSROOM_SETUP.md
-├── README.md
-└── data/
-    └── stories.json
-```
+Use the existing Supabase project and existing base schema. Do not rerun the original schema if it already ran successfully. Run the regular portal upgrade SQL if the class events, announcements, and student checklist tables are not present.
 
-The `PRIVATE_QUIZ_ANSWER_KEY.sql` script is supplied separately and must only be run in Supabase SQL Editor. **Do not upload it to public GitHub.**
+Run the separate owner-only SQL script `STORYVERSE_TEACHER_INVITE_SETUP.sql` in Supabase SQL Editor. That script creates the teacher invitation-code validator, ensures the profile customization columns are present, and installs private answer keys for only the three original stories. It must **never** be uploaded to public GitHub because it contains the teacher invitation-code hash and private answer keys.
 
-## Setup summary
+In Supabase Authentication → Providers → Email, turn **Confirm email OFF** for no-verification email/password accounts. Google sign-in is not used. Configure the Site URL and Redirect URLs to your GitHub Pages address.
 
-1. Use your existing Supabase project. If the original STORYVERSE database schema has already run successfully, do not run it again.
-2. Run `supabase-portal-upgrade.sql` in Supabase SQL Editor to add event, announcement, deadline, and private checklist features.
-3. If the private quiz answer key has not yet been loaded, run the separately supplied `STORYVERSE_PRIVATE_QUIZ_ANSWER_KEY.sql` in Supabase SQL Editor.
-4. In Supabase Authentication → URL Configuration, set the Site URL and Redirect URLs to your new GitHub Pages site. See `CLASSROOM_SETUP.md`.
-5. Create a new public GitHub repository named `storyverse-classroom`, and upload the contents of this folder to its root.
-6. Enable GitHub Pages from `main` / `/(root)`.
-7. Register a teacher account and promote it using the admin-only SQL in `CLASSROOM_SETUP.md`.
-8. Test one teacher account and one student account before using the system with participants.
+The browser uses a Supabase `sb_publishable_` key only. Never put a Supabase `sb_secret_` or `service_role` key in browser code.
 
-## Important notes
+## Teacher invitation
 
-- The browser contains only a Supabase **publishable** key. Never place a Supabase Secret or `service_role` key in browser code or GitHub.
-- Teacher privileges are not granted by selecting the teacher portal or by self-registration. A project administrator must approve the teacher profile in Supabase.
-- The public story JSON contains quiz prompts and choices but not correct-answer indexes or answer explanations. Correct choices are stored in the private Supabase schema and scored by the database function.
-- Students' personal checklist items are private; teachers do not see personal chores.
-- Teacher dashboards show records only for the teacher's own classrooms, enforced by Supabase Row Level Security.
-- Pre/post research assessment scores are teacher-entered and should come from the same approved instrument and conditions. Story quizzes are formative activities, not validated standardized reading tests.
-- Obtain school/research-adviser approval and the necessary consent before using student accounts and research records. Prefer pseudonymous study IDs and collect only necessary data.
+Give the teacher invitation code privately to trusted teachers only. The code is validated by a database function; users cannot grant themselves teacher permissions just by selecting the teacher portal or modifying browser data. The invitation code has a limited number of uses and an expiry.
 
-## Dependencies
+## Research and privacy
 
-The site uses free browser-loaded libraries: Three.js, QRCode.js, html5-qrcode, and the Supabase JavaScript client. GitHub Pages serves static files; Supabase handles accounts and data.
+Use pseudonymous student display names or study IDs where appropriate, collect only necessary data, and obtain school/adviser approval and required parent/student consent before using student accounts or research records. Students' personal checklist items are private to their own accounts. Teacher dashboards are limited by Supabase Row Level Security to the teacher's own classrooms.
 
+## AR and sound
 
-## STORYVERSE 2.5 visual and learning upgrade
-- Fresh responsive light theme with reduced-motion support and touch-friendly navigation.
-- Separate teacher and student portals, each with its own Log in and Create account tabs.
-- Three additional original stories: The Lantern Keeper, The Clockwork Garden, and The Mountain's Echo.
-- Student profile icon, colour themes, achievements, and score privacy preference.
-- Story scenes retain the interactive Three.js worlds; ambient sound is generated in-browser after the learner presses the sound control (no external audio downloads).
-
-### No email verification
-In Supabase Dashboard, open Authentication → Providers → Email and turn **Confirm email OFF**. This allows email/password registration to return a session immediately. No Google provider is used. Teacher accounts remain requests until the project administrator approves their role in `profiles`.
-
-### Profile + new quiz key upgrade
-Run `supabase-profile-and-stories-upgrade.sql` in SQL Editor. This adds profile customisation columns and the private answer-key rows for the three new stories. Never put private quiz answer keys or a Supabase secret/service-role key in GitHub.
+The 3D scene works on supported modern browsers. WebXR placement depends on device/browser support and HTTPS. Ambient sound begins only after a student presses the sound control because browsers generally require a user gesture before audio playback.

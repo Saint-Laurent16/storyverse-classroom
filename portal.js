@@ -42,7 +42,7 @@ function setAuthMode(mode) {
   $$('.signup-only').forEach(el => { el.hidden = mode !== 'signup'; });
   $('#authSubmit').innerHTML = mode === 'login'
     ? `Log in to ${isTeacher?'teacher':'student'} portal <span>→</span>`
-    : `Create ${isTeacher?'teacher request':'student account'} <span>→</span>`;
+    : `Create ${isTeacher?'teacher account':'student account'} <span>→</span>`;
   $('#password').autocomplete = mode === 'login' ? 'current-password' : 'new-password';
 }
 
@@ -61,8 +61,12 @@ async function submitAuth(event) {
       await afterSignIn(data.user);
     } else {
       const displayName = $('#displayName')?.value.trim() || (isTeacher ? 'Teacher' : 'Story Explorer');
-      const requestedRole = isTeacher ? 'teacher' : 'student';
+      // New accounts are always created as students. Only the server-side
+      // invitation RPC can promote a teacher account.
+      const requestedRole = 'student';
       const code = !isTeacher ? ($('#inviteCode')?.value.trim().toUpperCase() || state.pendingCode) : '';
+      const teacherCode = isTeacher ? ($('#teacherInviteCode')?.value.trim().toUpperCase() || '') : '';
+      if (isTeacher && !teacherCode) throw new Error('Enter the teacher invitation code to create your teacher account.');
       if (code && !/^[A-Z0-9]{5,10}$/.test(code)) throw new Error('Classroom codes use 5–10 letters or numbers.');
       if (code) localStorage.setItem('storyverse-pending-join-v1',code);
       const { data, error } = await supabase.auth.signUp({
@@ -74,9 +78,16 @@ async function submitAuth(event) {
       });
       if (error) throw error;
       if (data.session?.user) {
+        if (isTeacher) {
+          const { error: inviteError } = await supabase.rpc('activate_storyverse_teacher_invite', { p_code: teacherCode });
+          if (inviteError) {
+            await supabase.auth.signOut();
+            throw inviteError;
+          }
+        }
         await afterSignIn(data.user);
       } else {
-        message('#authMessage', 'Account was created, but Supabase did not start a session. To enable password-only signup with no email verification, turn OFF Authentication → Providers → Email → Confirm email in your Supabase project, then try again. No Google account is needed.','error');
+        message('#authMessage', 'Account was created, but Supabase did not start a session. Turn OFF Authentication → Providers → Email → Confirm email so password-only signup can start a session, then sign in and enter your invitation code. No Google account is needed.','error');
         setAuthMode('login');
       }
     }
@@ -92,23 +103,27 @@ async function fetchProfile(user) {
 }
 async function afterSignIn(user) {
   try {
-    const profile = await fetchProfile(user);
+    let profile = await fetchProfile(user);
     if (isTeacher && profile.role !== 'teacher') {
-      await supabase.auth.signOut();
-      const pending = profile.requested_role === 'teacher';
-      message('#authMessage',pending
-        ? 'Your teacher account is waiting for administrator approval. You can sign in here again after your teacher role is activated.'
-        : 'This account is registered as a student. Please use the Student Portal instead.','error');
-      return;
+      const invitationCode = $('#teacherInviteCode')?.value.trim().toUpperCase() || '';
+      if (invitationCode) {
+        const { error: inviteError } = await supabase.rpc('activate_storyverse_teacher_invite', { p_code: invitationCode });
+        if (inviteError) {
+          await supabase.auth.signOut();
+          message('#authMessage', inviteError.message || 'That teacher invitation code is invalid or expired.','error');
+          return;
+        }
+        profile = await fetchProfile(user);
+      }
+      if (profile.role !== 'teacher') {
+        await supabase.auth.signOut();
+        message('#authMessage','This account does not have teacher access yet. Enter a valid teacher invitation code above, or use the Student Portal.','error');
+        return;
+      }
     }
     if (!isTeacher && profile.role !== 'student') {
       await supabase.auth.signOut();
       message('#authMessage','This account has teacher access. Please use the Teacher Portal instead.','error');
-      return;
-    }
-    if (!isTeacher && profile.requested_role === 'teacher') {
-      await supabase.auth.signOut();
-      message('#authMessage','Your teacher access is still pending approval. Please return after the project administrator activates your teacher role.','error');
       return;
     }
     state.user = user; state.profile = profile;
@@ -126,7 +141,7 @@ async function afterSignIn(user) {
 }
 async function loadStoryCatalog() {
   try {
-    const response = await fetch('./data/stories.json',{cache:'no-cache'});
+    const response = await fetch(new URL('./data/stories.json', import.meta.url),{cache:'no-store'});
     if (!response.ok) throw new Error('Story catalogue is missing.');
     const data = await response.json();
     state.stories = Array.isArray(data.stories) ? data.stories : [];
@@ -303,7 +318,7 @@ function renderTeacherAnnouncements() {
 }
 function renderTeacherSettings() {
   return `${viewHeading('ACCOUNT','Your <em>settings.</em>','Account and access information.')}
-    <section class="content-card"><div class="profile-key">DISPLAY NAME</div><div class="profile-value">${esc(state.profile.display_name||'Teacher')}</div><div class="profile-key">EMAIL</div><div class="profile-value">${esc(state.user.email||'')}</div><div class="profile-key">ACCOUNT ROLE</div><div class="profile-value"><span class="pill purple">Approved teacher</span></div><p class="notice-inline">Teacher access is approved by the project administrator. Never share your password or Supabase project settings.</p><a class="small-button" href="stories.html">Open story library ↗</a></section>`;
+    <section class="content-card"><div class="profile-key">DISPLAY NAME</div><div class="profile-value">${esc(state.profile.display_name||'Teacher')}</div><div class="profile-key">EMAIL</div><div class="profile-value">${esc(state.user.email||'')}</div><div class="profile-key">ACCOUNT ROLE</div><div class="profile-value"><span class="pill purple">Verified teacher</span></div><p class="notice-inline">Teacher access was activated with a private invitation code. Keep your account credentials private.</p><a class="small-button" href="stories.html">Open story library ↗</a></section>`;
 }
 
 function renderStudentJoinForm() {
@@ -541,6 +556,7 @@ function setupEvents() {
   $('#sideNav').addEventListener('click',event=>{const btn=event.target.closest('[data-view]');if(btn)renderView(btn.dataset.view);});
   $('#password').addEventListener('keydown',event=>{if(event.key==='Enter')$('#authForm').requestSubmit();});
   $('#inviteCode')?.addEventListener('input',event=>{event.target.value=event.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,10);});
+  $('#teacherInviteCode')?.addEventListener('input',event=>{event.target.value=event.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,32);});
 }
 async function init() {
   if(!supabaseConfigured||!supabase) {

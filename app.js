@@ -218,8 +218,18 @@ async function syncCloudSceneProgress(scenesCompleted) {
 
 
 async function loadStories() {
-  const response = await fetch('./data/stories.json', { cache: 'no-cache' });
-  if (!response.ok) throw new Error('Could not load story content.');
+  // Resolve from this module, not the current page URL. This works on GitHub
+  // Pages project sites such as /storyverse-classroom/stories.html.
+  const storyDataUrl = new URL('./data/stories.json', import.meta.url);
+  let response;
+  try {
+    response = await fetch(storyDataUrl.href, { cache: 'no-store' });
+  } catch (networkError) {
+    throw new Error(`Could not reach ${storyDataUrl.pathname}. Check your connection and confirm that data/stories.json was uploaded beside the data folder. ${networkError.message || ''}`);
+  }
+  if (!response.ok) {
+    throw new Error(`Could not load ${storyDataUrl.pathname} (HTTP ${response.status}). Upload the data folder with stories.json into the repository root.`);
+  }
   baseData = await response.json();
   const savedEditor = localStorage.getItem(EDITOR_KEY);
   if (savedEditor) {

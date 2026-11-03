@@ -1,133 +1,70 @@
-# STORYVERSE 2.0 — Quick Setup Guide
+# STORYVERSE — launch and database checklist
 
-This guide is for the project owner/administrator. The website is static and can be hosted on GitHub Pages. Supabase provides authentication, classroom data, and row-level security.
+## 1. Update Supabase
 
-## 1. Supabase database
+Use your existing project. Do not rerun the original schema if it succeeded before.
 
-Use the Supabase project you already created.
+- If you have not run the portal feature upgrade, run the previously supplied `supabase-portal-upgrade.sql` once. It adds assignment instructions/deadlines, class events, announcements, and private student checklists.
+- Run the separate owner-only `STORYVERSE_TEACHER_INVITE_SETUP.sql` script provided with this update. It installs the teacher invitation-code validator, profile customisation columns, and private quiz answer keys for the three original stories.
+- **Never upload `STORYVERSE_TEACHER_INVITE_SETUP.sql` to public GitHub.** It contains private access configuration and answer keys.
 
-- If you have already successfully run the original `supabase-schema.sql`, do **not** run it again.
-- Run the new `supabase-portal-upgrade.sql` in Supabase → SQL Editor → New query. This adds assignment deadlines, class schedule events, class announcements, and a private student checklist.
-- If you have not already loaded the private answer key, run the separate `STORYVERSE_PRIVATE_QUIZ_ANSWER_KEY.sql` in Supabase SQL Editor. Keep that file private and do not commit it to GitHub.
+## 2. Teacher invitation code
 
-The original schema includes profiles, classrooms, memberships, story assignments, scene progress, quiz attempts, assessment scores, RLS policies, and the secure quiz/classroom RPCs.
+The teacher invitation code is supplied separately to the project owner. Share it only with trusted teachers, privately. It can be used up to five times and expires 180 days after the SQL script is run. The actual code is deliberately not written in this guide or the public website package. To issue a replacement, generate a new high-entropy code, insert its SHA-256 hash into `private.teacher_invite_codes` using the same pattern in the SQL file, and deactivate the old code. Do not publish the code in a public repository or screenshot.
 
-## 2. Supabase authentication URLs
+Teacher sign-up requires this code. Existing accounts can enter it on the Teacher Portal login screen to activate teacher access. The database validates it and sets the role; changing browser text or signup metadata cannot grant teacher access.
 
-For the planned new repository name `storyverse-classroom`, open Supabase → Authentication → URL Configuration and set:
+## 3. Disable email verification
 
-**Site URL**
+Supabase Dashboard → Authentication → Providers → Email → turn **Confirm email OFF** → Save. Keep email/password enabled. No Google provider is required.
 
-`https://saint-laurent16.github.io/storyverse-classroom/`
+## 4. GitHub Pages
 
-**Redirect URLs** (add both)
+Upload the contents of the website ZIP to the repository root. Do not upload the ZIP itself. Preserve this layout:
 
-`https://saint-laurent16.github.io/storyverse-classroom/teacher.html`
-
-`https://saint-laurent16.github.io/storyverse-classroom/student.html`
-
-If the repository name or GitHub username changes, replace these URLs with the actual GitHub Pages address.
-
-Keep email/password authentication enabled. Google OAuth is not required. Supabase email confirmation may be enabled; the user will need to verify their address before signing in.
-
-## 3. GitHub Pages upload
-
-1. Create a new **public** GitHub repository named `storyverse-classroom`.
-2. Extract the website ZIP.
-3. Upload the **contents** of the extracted folder to the repository root, not the ZIP file itself.
-4. Make sure the `data` folder and its `stories.json` file are uploaded as a folder.
-5. Do not upload `STORYVERSE_PRIVATE_QUIZ_ANSWER_KEY.sql`.
-6. Commit the files to the `main` branch.
-7. Open repository Settings → Pages → Build and deployment. Choose **Deploy from a branch**, branch `main`, folder `/(root)`, then Save.
-
-Expected address:
-
-`https://saint-laurent16.github.io/storyverse-classroom/`
-
-## 4. Approve the first teacher
-
-A teacher who self-registers is initially created as a student-role profile with `requested_role = 'teacher'`. This prevents users from granting themselves access to student records.
-
-1. Register from `teacher.html` using the teacher's own email address.
-2. Confirm the email if confirmation is enabled.
-3. In Supabase → Authentication → Users, find the account and copy its user UUID.
-4. Open SQL Editor and run this query, replacing the UUID with the verified teacher account UUID:
-
-```sql
-update public.profiles
-set role = 'teacher'
-where id = 'PASTE_TEACHER_AUTH_USER_UUID_HERE'
-  and requested_role = 'teacher';
+```text
+index.html
+teacher.html
+student.html
+stories.html
+app.js
+portal.js
+portal.css
+premium.css
+storybook.css
+supabase-client.js
+data/stories.json
 ```
 
-5. The teacher should sign out and sign in again at `teacher.html`.
+Then GitHub → Settings → Pages → Deploy from a branch → `main` → `/(root)` → Save.
 
-Only the project owner should run the approval query. Do not give students access to the Supabase dashboard or SQL Editor.
+## 5. Supabase URL configuration
 
-## 5. Teacher workflow
+For the repository `storyverse-classroom`, set the Site URL to:
 
-1. Sign in through **For Teachers**.
-2. Open My Classrooms and create a class for the required grade/section.
-3. Copy the private invite link or share the 10-character classroom code directly with the students.
-4. Open Assignments, select a classroom, assign one or more stories, and optionally set due dates and instructions.
-5. Add class events and announcements from their respective menu tabs.
-6. Review student progress and record pre-test/post-test percentages when appropriate.
+`https://saint-laurent16.github.io/storyverse-classroom/`
 
-## 6. Student workflow
+Add these Redirect URLs:
 
-Students can self-register through **For Students**. They can enter a classroom code during registration, use a teacher's invite link (`student.html?code=...`), or sign in first and join later from the dashboard.
+- `https://saint-laurent16.github.io/storyverse-classroom/teacher.html`
+- `https://saint-laurent16.github.io/storyverse-classroom/student.html`
 
-After joining, students see assigned stories, task instructions, deadlines, class schedule, teacher announcements, and their own reading progress. The My Checklist section is private to the student and supports both school tasks and personal chores.
+If your repository name differs, use its actual GitHub Pages URL instead.
 
-## 7. Test before research use
+## 6. Test before research use
 
-Use separate test email accounts for teacher and student. Verify:
+- Register a student account and verify it can join a class with the classroom code.
+- Register a teacher account using the private invitation code. Confirm teacher access is activated without a manual role update.
+- Confirm a teacher without a valid code cannot access the teacher dashboard.
+- Assign each of the three stories and open each from the student portal.
+- Verify scene progress and quiz submissions sync.
+- Verify a student's checklist remains private.
+- Test on a phone and a laptop.
 
-- [ ] Teacher signup remains pending until administrator approval.
-- [ ] Unapproved users cannot access teacher dashboard or create classrooms.
-- [ ] Approved teacher can create a class and copy an invite link.
-- [ ] Student can self-register and join with a code.
-- [ ] Student sees only stories assigned to joined classes.
-- [ ] Class assignment instructions and due dates appear on student portal.
-- [ ] Events and announcements appear for members of the relevant class.
-- [ ] Student checklist can be added/updated/deleted and is not visible to teachers or other students.
-- [ ] Student story launches from its class assignment and scene progress syncs.
-- [ ] Quiz scores are calculated by `submit_storyverse_quiz` using the private answer key.
-- [ ] Teacher sees only their classrooms' student data.
-- [ ] Test on the actual phones and browsers participants will use.
+## Story-library loading fix
 
-## Privacy and research notes
+`app.js` and `portal.js` now resolve `data/stories.json` relative to their own module URLs. This supports GitHub Pages project URLs. If the story page reports an HTTP 404, verify `data/stories.json` is at the repository root inside the `data` folder—not in a nested extracted-folder directory.
 
-Use approved pseudonymous study IDs or nicknames for student display names. Avoid collecting birth dates, home addresses, or unnecessary personal details. Confirm school/adviser approval and required parental/student consent before using this system with minors. Scene completion indicates that a learner navigated the story, not proof of attention or reading quality. Quiz results are formative and should not be described as a validated standardized test.
+## Research and privacy
 
-## Troubleshooting
-
-**Teacher account says access pending:** the project owner has not run the approval query, or the account UUID/email does not match. Sign out and sign in again after approval.
-
-**Class schedule, announcements, or checklist show an error:** run `supabase-portal-upgrade.sql` in the same Supabase project. The original schema alone does not create those new tables.
-
-**Student cannot join:** confirm the account is a student, the classroom is active, and the code was typed exactly.
-
-**Story opens without saving progress:** launch it from the assigned story card inside the signed-in student portal. A public/demo story open is not a classroom assignment.
-
-**Quiz scores do not sync:** check that the private answer-key SQL has been run and that the story is assigned to the class.
-
-**Email confirmation fails to return to the site:** verify that both portal page URLs are listed in Supabase Redirect URLs.
-
-
-## No-verification password registration
-For password-only accounts with no email confirmation, go to Supabase → Authentication → Providers → Email → disable **Confirm email**. Leave Google OAuth unused. Then test student self-registration and teacher account request with separate email addresses. Teacher access must still be approved by the project owner.
-
-## Profile and story catalogue upgrade
-Run `supabase-profile-and-stories-upgrade.sql` in the Supabase SQL Editor. It adds profile avatar/theme/privacy fields and private answer-key rows for `lantern`, `clockwork`, and `mountain`.
-
-
-## Final launch checklist
-1. Upload every extracted ZIP file and folder to the root of your new GitHub repository (do not upload the ZIP as a single file).
-2. GitHub → Settings → Pages → Deploy from a branch → `main` → `/(root)`.
-3. Supabase → Authentication → Providers → Email → turn **Confirm email OFF** for password-only accounts without email verification. Do not configure Google OAuth.
-4. Supabase → Authentication → URL Configuration → set the Site URL to your GitHub Pages homepage and allow the teacher and student page URLs.
-5. Run `supabase-profile-and-stories-upgrade.sql` once. Your existing schema and portal upgrade remain in place; do not rerun them unless your database is missing those tables/functions.
-6. Register one student test account and one teacher request. Promote the teacher account only after you identify its auth user UUID and approve it in `public.profiles`.
-
-WebXR augmented reality depends on the phone/browser's AR support. The interactive 3D story scene remains available on desktop and unsupported phones; AR placement is offered on compatible devices over HTTPS. Soundscapes are generated locally with Web Audio after the learner taps the sound control, so no external audio files are required.
+Obtain school/research-adviser approval and required parental/student consent before entering minors' information. Prefer pseudonymous student IDs and avoid collecting unnecessary personal details. Quiz attempts are formative learning measures; pre-/post-tests should use your approved research instrument.
